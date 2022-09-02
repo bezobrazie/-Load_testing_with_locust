@@ -21,6 +21,7 @@ class KafkaUser(User):
         request_start_time = time.time()
         self.kfk.send()
         processing_time = int((time.time() - request_start_time) * 1000)
+        # для передачи информации в статистику
         events.request.fire(
             request_type="KAFKA",
             name='send_payment',

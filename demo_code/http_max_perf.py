@@ -1,4 +1,4 @@
-from locust import task, constant_pacing, HttpUser, LoadTestShape
+from locust import task, constant_pacing, HttpUser, LoadTestShape, run_single_user
 import random
 import assertion
 from config import cfg, logger
@@ -53,3 +53,7 @@ class StagesShape(LoadTestShape):
                 tick_data = (stage["users"], stage["spawn_rate"])
                 return tick_data
         return None
+
+# Используется для дебага
+# if __name__ == "__main__":
+#     run_single_user(CartUser)

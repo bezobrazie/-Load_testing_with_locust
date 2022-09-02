@@ -28,11 +28,21 @@ services:
        && kafka-topics --bootstrap-server kafka:29092 --create --topic output-topic --replication-factor 1 --partitions 1
        )&) && /etc/confluent/docker/run 
        "
-
-
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    ports:
+      - 8086:8086
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=username
+      - DOCKER_INFLUXDB_INIT_PASSWORD=passwordpasswordpassword
+      - DOCKER_INFLUXDB_INIT_ORG=demo_org
+      - DOCKER_INFLUXDB_INIT_BUCKET=demo_bucket
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=demo_token
   mock:
     build: .
-    container_name: rest_api
+    container_name: mock
     command: uvicorn locust_mock:app --timeout-keep-alive 120 --host 0.0.0.0
     ports:
       - 9090:8000
