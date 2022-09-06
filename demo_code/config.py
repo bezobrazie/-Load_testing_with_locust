@@ -4,7 +4,7 @@ import logging
 
 
 class Config:
-    conf_name = 'Heisenbug'
+    conf_name = 'Demo'
     pacing_sec = 0.1
     api_host = 'http://localhost:9090'
     kafka_hosts = ['localhost:29092']

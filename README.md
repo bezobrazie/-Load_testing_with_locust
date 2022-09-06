@@ -27,3 +27,5 @@
 
       - в терминале №1 выполнить: locust -f locustfile.py --master
       - в терминале №2,3 и т.д.: locust -f locustfile.py --worker --master-host=localhost
+      - для запуска веб интерфейса с выбором теста и рампы locust -f kafka_max_perf.py,http_max_pref.py,full_max_perf.py  --class-picker
+ 
