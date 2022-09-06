@@ -37,13 +37,13 @@ class CartUser(HttpUser):
         logger.debug(f"user stopped")
 
 
-class StagesShape(LoadTestShape):
+class StagesHttp(LoadTestShape):
     stages = [
         {"duration": 20, "users": 1, "spawn_rate": 1},
         {"duration": 40, "users": 2, "spawn_rate": 1},
-        {"duration": 60, "users": 4, "spawn_rate": 1},
-        {"duration": 80, "users": 8, "spawn_rate": 1},
-        {"duration": 100, "users": 10, "spawn_rate": 1},
+        # {"duration": 60, "users": 4, "spawn_rate": 1},
+        # {"duration": 80, "users": 8, "spawn_rate": 1},
+        # {"duration": 100, "users": 10, "spawn_rate": 1},
     ]
 
     def tick(self):
